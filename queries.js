@@ -8,16 +8,25 @@ var options = {
     promiseLib: promise
 };
 
+// const databaseConfig = {
+//     "host": "localhost",
+//     "port": 5432,
+//     "database": "smart_quest",
+//     "user": "postgres",
+//     "password": "334675Ld!"
+// };
+
 const databaseConfig = {
-    "host": "localhost",
+    "host": "ec2-54-163-246-154.compute-1.amazonaws.com",
     "port": 5432,
-    "database": "smart_quest",
-    "user": "postgres",
-    "password": "334675Ld!"
+    "database": "d6eupguttlqq1e",
+    "user": "jpfwdvyczswbxi",
+    "password": "41c337d3c32ea2f4d35e9fa36c0b8e9f28073ece068d38026aa66ab5a0d19e7f!"
 };
 
+
 var pgp = require('pg-promise')(options);
-var db = pgp(databaseConfig);
+var db = pgp('postgres://jpfwdvyczswbxi:41c337d3c32ea2f4d35e9fa36c0b8e9f28073ece068d38026aa66ab5a0d19e7f@ec2-54-163-246-154.compute-1.amazonaws.com:5432/d6eupguttlqq1e');
 
 
 function isNumeric(n) {
