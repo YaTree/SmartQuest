@@ -90,6 +90,67 @@ router.put('/api/v1/answerOptions/:id', db.updateAnswerOption);
 router.delete('/api/v1/answerOptions/:id', db.removeAnswerOption);
 router.get('/api/v1/tasks/:id/answerOptions', db.getAnswerOptionsForTask);
 
+
+// Routing Messages API
+router.get('/api/v1/messages', db.getAllMessages);
+router.get('/api/v1/messages/:id', db.getMessageById);
+router.post('/api/v1/messages', db.createMessage);
+router.put('/api/v1/messages/:id', db.updateMessage);
+router.delete('/api/v1/messages/:id', db.removeMessage);
+// Routing Chats API
+router.get('/api/v1/chats', db.getAllChats);
+router.get('/api/v1/chats/:id', db.getChatById);
+router.post('/api/v1/chats', db.createChat);
+router.put('/api/v1/chats/:id', db.updateChat);
+router.delete('/api/v1/chats/:id', db.removeChat);
+// Routing News API
+router.get('/api/v1/news', db.getAllNews);
+router.get('/api/v1/news/:id', db.getNewsById);
+router.post('/api/v1/news', db.createNews);
+router.put('/api/v1/news/:id', db.updateNews);
+router.delete('/api/v1/news/:id', db.removeNews);
+// Routing Users API
+router.get('/api/v1/users', db.getAllUsers);
+router.get('/api/v1/users/:id', db.getUserById);
+router.post('/api/v1/users', db.createUser);
+router.put('/api/v1/users/:id', db.updateUser);
+router.delete('/api/v1/users/:id', db.removeUser);
+// Routing Teams API
+router.get('/api/v1/teams', db.getAllTeams);
+router.get('/api/v1/teams/:id', db.getTeamById);
+router.post('/api/v1/teams', db.createTeam);
+router.put('/api/v1/teams/:id', db.updateTeam);
+router.delete('/api/v1/teams/:id', db.removeTeam);
+
+// Routing Orders API
+router.get('/api/v1/orders', db.getAllOrders);
+router.get('/api/v1/orders/:id', db.getOrderById);
+router.post('/api/v1/orders', db.createOrder);
+router.put('/api/v1/orders/:id', db.updateOrder);
+router.delete('/api/v1/orders/:id', db.removeOrder);
+
+// Routing Games API
+router.get('/api/v1/games', db.getAllGames);
+router.get('/api/v1/games/:id', db.getGameById);
+router.post('/api/v1/games', db.createGame);
+router.put('/api/v1/games/:id', db.updateGame);
+router.delete('/api/v1/games/:id', db.removeGame);
+
+// Routing Games2Users API
+router.get('/api/v1/games2users', db.getAllGames2Users);
+router.get('/api/v1/games2users/:id', db.getGames2UsersById);
+router.post('/api/v1/games2users', db.createGames2Users);
+router.put('/api/v1/games2users/:id', db.updateGames2Users);
+router.delete('/api/v1/games2users/:id', db.removeGames2Users);
+
+
+// Routing Games2Teams API
+router.get('/api/v1/games2teams', db.getAllGames2Teams);
+router.get('/api/v1/games2teams/:id', db.getGames2TeamsById);
+router.post('/api/v1/games2teams', db.createGames2Teams);
+router.put('/api/v1/games2teams/:id', db.updateGames2Teams);
+router.delete('/api/v1/games2teams/:id', db.removeGames2Teams);
+
 //router.get('/api/puppies', db.getAllPuppies);
 // router.get('/api/puppies/:id', db.getSinglePuppy);
 // router.post('/api/puppies', db.createPuppy);
