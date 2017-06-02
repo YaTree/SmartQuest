@@ -90,7 +90,6 @@ router.put('/api/v1/answerOptions/:id', db.updateAnswerOption);
 router.delete('/api/v1/answerOptions/:id', db.removeAnswerOption);
 router.get('/api/v1/tasks/:id/answerOptions', db.getAnswerOptionsForTask);
 
-
 // Routing Messages API
 router.get('/api/v1/messages', db.getAllMessages);
 router.get('/api/v1/messages/:id', db.getMessageById);
