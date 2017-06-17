@@ -3,7 +3,7 @@
  */
 var promise = require('bluebird');
 var jwt    = require('jsonwebtoken');
-
+var md5 = require('md5');
 
 var options = {
     // Initialization Options
@@ -1250,13 +1250,13 @@ function removeUser(req, res, next) {
 
 function checkUser(req, res, next) {
     var userName = req.body.name;
-    var userPassword = req.body.password;
+    var userPassword =  md5(req.body.password);
     console.log(userName, userPassword, req.body);
     db.any("SELECT user_id FROM customer.users WHERE user_name = $1 and user_password = $2", [userName, userPassword])
         .then(function (data) {
             if (data.length > 0) {
                 //TODO Move Secret to service
-                var token = jwt.sign(user, 'Secret!123', {
+                var token = jwt.sign( {user: userName, password: userPassword}, 'Secret!123', {
                     expiresInMinutes: 1440 // expires in 24 hours
                 });
 
