@@ -4,6 +4,7 @@
 var promise = require('bluebird');
 var jwt    = require('jsonwebtoken');
 var md5 = require('md5');
+var phrase = require('./routes/secret');
 
 var options = {
     // Initialization Options
@@ -1257,7 +1258,7 @@ function checkUser(req, res, next) {
         .then(function (data) {
             if (data.length > 0) {
                 //TODO Move Secret to service
-                var token = jwt.sign( {user: userName, password: userPassword}, 'Secret!123', {
+                var token = jwt.sign( {user: userName, password: userPassword}, phrase.secret, {
                     expiresIn: "2    days" // expires in 24 hours
                 });
 

@@ -4,6 +4,7 @@
 var express = require('express');
 var router = express.Router();
 var jwt    = require('jsonwebtoken');
+var phrase = require('./secret');
 var md5 = require('md5');
 
 router.use(function(req, res, next) {
@@ -14,7 +15,7 @@ router.use(function(req, res, next) {
     if (token) {
 
         // verifies secret and checks exp
-        jwt.verify(token, 'Secret!123', function(err, decoded) {
+        jwt.verify(token, phrase.secret, function(err, decoded) {
             if (err) {
                 return res.json({ success: false, message: 'Failed to authenticate token.' });
             } else {
