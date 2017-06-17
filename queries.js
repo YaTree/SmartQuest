@@ -1198,6 +1198,7 @@ function getUserById(req, res, next) {
 }
 
 function createUser(req, res, next) {
+    req.body.user_password = md5(req.body.user_password);
     var pg_request = pgInsertRequest ('customer.users', 'user_id', req.body);
 
     db.one(pg_request)
