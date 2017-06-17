@@ -1,19 +1,32 @@
 {
   "name": "smartquest",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "dependencies": {
     "bluebird": "^3.5.0",
-    "body-parser": "~1.17.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.3",
-    "express": "~4.15.2",
-    "jade": "~1.11.0",
-    "morgan": "~1.8.1",
-    "pg-promise": "^5.8.1",
-    "serve-favicon": "~2.4.2"
-  }
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.8",
+    "express": "^4.15.3",
+    "jade": "^1.11.0",
+    "jsonwebtoken": "^7.4.1",
+    "morgan": "^1.8.2",
+    "pg-promise": "^5.9.3",
+    "serve-favicon": "^2.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YaTree/SmartQuest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YaTree/SmartQuest/issues"
+  },
+  "homepage": "https://github.com/YaTree/SmartQuest#readme"
 }

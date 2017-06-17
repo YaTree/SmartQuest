@@ -1251,7 +1251,6 @@ function checkUser(req, res, next) {
     var userPassword = parseInt(req.params.password);
     db.any('SELECT user_id FROM customer.user WHERE user_name = $1 and user_password = $2', userName,userPassword)
         .then(function (data) {
-
             res.status(200)
                 .json({
                     status: 'success',
