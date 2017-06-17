@@ -1257,7 +1257,6 @@ function checkUser(req, res, next) {
     db.any("SELECT user_id FROM customer.users WHERE user_name = $1 and user_password = $2", [userName, userPassword])
         .then(function (data) {
             if (data.length > 0) {
-                //TODO Move Secret to service
                 var token = jwt.sign( {user: userName, password: userPassword}, phrase.secret, {
                     expiresIn: "2    days" // expires in 24 hours
                 });
