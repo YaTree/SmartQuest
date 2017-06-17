@@ -1255,7 +1255,7 @@ function checkUser(req, res, next) {
                 .json({
                     status: 'success',
                     data: data,
-                    message: `Removed ${result.rowCount} User`
+                    message: `Removed ${data.rowCount} User`
                 });
 
         })
