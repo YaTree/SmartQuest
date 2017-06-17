@@ -2,6 +2,8 @@
  * Created by yatree on 30/05/17.
  */
 var promise = require('bluebird');
+var jwt    = require('jsonwebtoken');
+
 
 var options = {
     // Initialization Options
@@ -1252,12 +1254,26 @@ function checkUser(req, res, next) {
     console.log(userName, userPassword, req.body);
     db.any("SELECT user_id FROM customer.users WHERE user_name = $1 and user_password = $2", [userName, userPassword])
         .then(function (data) {
-            res.status(200)
-                .json({
-                    status: 'success',
-                    data: data,
-                    message: `Removed ${data.rowCount} User`
+            if (data.length > 0) {
+                //TODO Move Secret to service
+                var token = jwt.sign(user, 'Secret!123', {
+                    expiresInMinutes: 1440 // expires in 24 hours
                 });
+
+                // return the information including token as JSON
+                res.json({
+                    success: true,
+                    message: 'Enjoy your token!',
+                    token: token
+                });
+            } else {
+                res.status(200)
+                    .json({
+                        status: 'failed',
+                        message: `User does not exist or password is not correct`
+                    });
+            }
+
 
         })
         .catch(function (err) {
