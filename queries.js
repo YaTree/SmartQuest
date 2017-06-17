@@ -1258,7 +1258,7 @@ function checkUser(req, res, next) {
             if (data.length > 0) {
                 //TODO Move Secret to service
                 var token = jwt.sign( {user: userName, password: userPassword}, 'Secret!123', {
-                    expiresInMinutes: 1440 // expires in 24 hours
+                    expiresIn: "2 days" // expires in 24 hours
                 });
 
                 // return the information including token as JSON
