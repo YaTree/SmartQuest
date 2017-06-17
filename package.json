@@ -4,20 +4,20 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
+    "bluebird": "^3.5.0",
     "cookie-parser": "^1.4.3",
-    "debug": "^2.6.8",
     "express": "^4.15.3",
-    "jade": "^1.11.0",
     "jsonwebtoken": "^7.4.1",
-    "morgan": "^1.8.2",
+    "debug": "^2.6.8",
     "pg-promise": "^5.9.3",
-    "serve-favicon": "^2.4.3"
+    "jade": "^1.11.0",
+    "serve-favicon": "^2.4.3",
+    "morgan": "^1.8.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
