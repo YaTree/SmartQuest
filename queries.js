@@ -1249,7 +1249,8 @@ function removeUser(req, res, next) {
 function checkUser(req, res, next) {
     var userName = req.params.name;
     var userPassword = req.params.password;
-    db.any("SELECT user_id FROM customer.users WHERE user_name = $0 and user_password = $1", [userName,userPassword])
+    console.log(userName, userPassword);
+    db.any("SELECT user_id FROM customer.users WHERE user_name = $1 and user_password = $2", [userName, userPassword])
         .then(function (data) {
             res.status(200)
                 .json({
