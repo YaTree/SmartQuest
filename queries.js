@@ -1196,7 +1196,7 @@ function getUserById(req, res, next) {
 }
 
 function createUser(req, res, next) {
-    var pg_request = pgInsertRequest ('customer.user', 'user_id', req.body);
+    var pg_request = pgInsertRequest ('customer.users', 'user_id', req.body);
 
     db.one(pg_request)
         .then(function (data) {
@@ -1213,7 +1213,7 @@ function createUser(req, res, next) {
 }
 
 function updateUser(req, res, next) {
-    var pg_request = pgUpdateRequest('customer.user', 'user_id', req.body);
+    var pg_request = pgUpdateRequest('customer.users', 'user_id', req.body);
 
     console.log (pg_request);
     db.none(pg_request, [parseInt(req.params.id)])
@@ -1245,6 +1245,27 @@ function removeUser(req, res, next) {
             return next(err);
         });
 }
+
+function checkUser(req, res, next) {
+    var userName = parseInt(req.params.name);
+    var userPassword = parseInt(req.params.password);
+    db.any('SELECT user_id FROM customer.user WHERE user_name = $1 and user_password = $2', userName,userPassword)
+        .then(function (data) {
+
+            res.status(200)
+                .json({
+                    status: 'success',
+                    data: data,
+                    message: `Removed ${result.rowCount} User`
+                });
+
+        })
+        .catch(function (err) {
+            return next(err);
+        });
+}
+
+
 
 // Teams API
 function getAllTeams(req, res, next) {
@@ -1279,7 +1300,7 @@ function getTeamById(req, res, next) {
 }
 
 function createTeam(req, res, next) {
-    var pg_request = pgInsertRequest ('customer.team', 'team_id', req.body);
+    var pg_request = pgInsertRequest ('customer.teams', 'team_id', req.body);
 
     db.one(pg_request)
         .then(function (data) {
@@ -1296,7 +1317,7 @@ function createTeam(req, res, next) {
 }
 
 function updateTeam(req, res, next) {
-    var pg_request = pgUpdateRequest('customer.team', 'team_id', req.body);
+    var pg_request = pgUpdateRequest('customer.teams', 'team_id', req.body);
 
     console.log (pg_request);
     db.none(pg_request, [parseInt(req.params.id)])
@@ -1362,7 +1383,7 @@ function getOrderById(req, res, next) {
 }
 
 function createOrder(req, res, next) {
-    var pg_request = pgInsertRequest ('customer.order', 'order_id', req.body);
+    var pg_request = pgInsertRequest ('customer.orders', 'order_id', req.body);
 
     db.one(pg_request)
         .then(function (data) {
@@ -1379,7 +1400,7 @@ function createOrder(req, res, next) {
 }
 
 function updateOrder(req, res, next) {
-    var pg_request = pgUpdateRequest('customer.order', 'order_id', req.body);
+    var pg_request = pgUpdateRequest('customer.orders', 'order_id', req.body);
 
     console.log (pg_request);
     db.none(pg_request, [parseInt(req.params.id)])
@@ -1997,6 +2018,7 @@ module.exports = {
     createUser: createUser,
     updateUser: updateUser,
     removeUser: removeUser,
+    checkUser: checkUser,
 
     // Team API
     getAllTeams: getAllTeams,
